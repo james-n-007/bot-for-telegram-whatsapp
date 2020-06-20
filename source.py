@@ -1,8 +1,11 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Options
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import apiai, json
-updater = Updater(token='YOURE TOKEN') # Telegram API Token
+updater = Updater(token='1273657107:AAFoblrkSnbkdYWJiiHU4xt9WueHuyZIB2M') # Telegram API Token
 dispatcher = updater.dispatcher
-
+# Обработка команд
 def startCommand(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Hello, do you want to talk?')
 def textMessage(bot, update):
@@ -16,7 +19,6 @@ def textMessage(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text=response)
     else:
         bot.send_message(chat_id=update.message.chat_id, text='I dont understand!')
-
 # Handlers
 start_command_handler = CommandHandler('start', startCommand)
 text_message_handler = MessageHandler(Filters.text, textMessage)
